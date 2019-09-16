@@ -1,0 +1,155 @@
+-- phpMyAdmin SQL Dump
+-- version 2.11.7
+-- http://www.phpmyadmin.net
+--
+-- Servidor: localhost
+-- Tempo de Geração: Ago 04, 2014 as 05:46 PM
+-- Versão do Servidor: 5.0.51
+-- Versão do PHP: 5.2.6
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Banco de Dados: `control_x3`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `logs`
+--
+
+CREATE TABLE IF NOT EXISTS `logs` (
+  `id` int(11) NOT NULL auto_increment,
+  `dt_entrada` datetime NOT NULL default '0000-00-00 00:00:00',
+  `dt_saida` datetime default '0000-00-00 00:00:00',
+  `id_user` varchar(50) NOT NULL default '',
+  `session_id` varchar(60) NOT NULL default '',
+  `id_desconecta` varchar(30) default NULL,
+  `data_h_desconecta` varchar(100) default NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=58 ;
+
+--
+-- Extraindo dados da tabela `logs`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `logs_detalhes`
+--
+
+CREATE TABLE IF NOT EXISTS `logs_detalhes` (
+  `id_user` int(11) NOT NULL,
+  `url` text collate latin1_general_ci NOT NULL,
+  `datahora` datetime NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Extraindo dados da tabela `logs_detalhes`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `nome_exibir`
+--
+
+CREATE TABLE IF NOT EXISTS `nome_exibir` (
+  `id` int(11) NOT NULL auto_increment,
+  `nome` varchar(250) collate latin1_general_ci NOT NULL,
+  `controler` varchar(60) collate latin1_general_ci NOT NULL,
+  `variavel` varchar(100) collate latin1_general_ci NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci AUTO_INCREMENT=5 ;
+
+--
+-- Extraindo dados da tabela `nome_exibir`
+--
+
+INSERT INTO `nome_exibir` (`id`, `nome`, `controler`, `variavel`) VALUES
+(1, 'Agenda', 'agendaCampos.txt', 'titleAgendaList'),
+(2, 'Agenda', 'agendaCampos.txt', 'tituloCrudAgendaList'),
+(3, 'Adicionar novo contato', 'agendaCampos.txt', 'adicionarAgendaList'),
+(4, 'Adicionar novo contato', 'agendaCampos.txt', 'adicionarTitleAgendaList');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario` (
+  `id` int(11) NOT NULL auto_increment,
+  `data` varchar(30) NOT NULL,
+  `login` varchar(120) NOT NULL,
+  `senha` varchar(250) NOT NULL,
+  `nome` varchar(250) NOT NULL,
+  `nascimento` varchar(250) NOT NULL,
+  `endereco` varchar(250) NOT NULL,
+  `pais` varchar(20) NOT NULL,
+  `cidade` varchar(120) NOT NULL,
+  `estado` varchar(5) NOT NULL,
+  `fone1` varchar(20) NOT NULL,
+  `fone2` varchar(20) NOT NULL,
+  `fone3` varchar(20) NOT NULL,
+  `fone4` varchar(20) NOT NULL,
+  `foto` varchar(250) NOT NULL,
+  `foto_perf` varchar(250) NOT NULL,
+  `redimencionado` varchar(20) NOT NULL default 'nao',
+  `descricao` text NOT NULL,
+  `nomef` varchar(120) NOT NULL,
+  `cpf_cnpjf` varchar(30) NOT NULL,
+  `usuarioadmgeral` varchar(15) default 'nao',
+  `programador` varchar(20) NOT NULL default 'nao',
+  `identidade` varchar(30) NOT NULL,
+  `sexo` varchar(30) NOT NULL,
+  `uf` varchar(100) NOT NULL,
+  `cep` varchar(30) NOT NULL,
+  `celular` varchar(30) NOT NULL,
+  `email` varchar(250) NOT NULL,
+  `tipo` int(11) NOT NULL,
+  `lixeira` varchar(10) NOT NULL default 'nao',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `data`, `login`, `senha`, `nome`, `nascimento`, `endereco`, `pais`, `cidade`, `estado`, `fone1`, `fone2`, `fone3`, `fone4`, `foto`, `foto_perf`, `redimencionado`, `descricao`, `nomef`, `cpf_cnpjf`, `usuarioadmgeral`, `programador`, `identidade`, `sexo`, `uf`, `cep`, `celular`, `email`, `tipo`, `lixeira`) VALUES
+(1, '2012-03-27', 'antonio@x3sistemas.com.br', 'VZFczZ1asdnUs50MadEeWVWVWdVVB1TP', 'Antonio Vieira', '03/10/1984', 'QSA', 'BR', 'Taguatinga', 'DF', '(61) 8413-4781', '(61) 9265-4464', '(21) 3213-1321', '', '', 'arquivos-definitivos/120062012.png', 'sim', '', '', '', 'nao', 'nao', '', '', '', '', '', 'x3desenvolvimento@gmail.com', 0, 'nao'),
+(15, '', 'teste@teste.com.br', 'VZFczZ1asdnUs50MadEeWVWVWdVVB1TP', '', '', '', '', '', '', '', '', '', '', '', '', 'nao', '', '', '', 'nao', 'nao', '', '', '', '', '', '', 0, 'nao'),
+(16, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'nao', '', '', '', 'nao', 'nao', '', '', '', '', '', '', 0, 'nao'),
+(17, '', 'eduardo3819@gmail.com', 'U5Ga0Z1aaNlYHZEWOZFZhNGbKVVVB1TP', 'Eduardo Salvador', '', '', '', '', '', '(61) 3081-1396', '(61) 9821-2277', '', '', '', '', 'nao', '', '', '', 'nao', 'nao', '', '', '', '', '', 'eduardo_3819@hotmail.com', 0, 'nao');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario_tipo`
+--
+
+CREATE TABLE IF NOT EXISTS `usuario_tipo` (
+  `usuarioid` int(11) NOT NULL,
+  `tipo` int(11) NOT NULL COMMENT '1 = Administrador, 2 = agenda, 3 = Fornecedor, 4 = cliente , 5 usuário com permissões do sistema',
+  `datahora` date NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+
+--
+-- Extraindo dados da tabela `usuario_tipo`
+--
+
+INSERT INTO `usuario_tipo` (`usuarioid`, `tipo`, `datahora`) VALUES
+(1, 1, '2014-07-07'),
+(14, 2, '2014-07-08'),
+(1, 2, '2014-07-07'),
+(16, 2, '2014-07-15'),
+(15, 2, '2014-07-15'),
+(15, 5, '2014-07-15'),
+(1, 3, '2014-07-16'),
+(1, 4, '2014-07-16'),
+(17, 2, '2014-07-26'),
+(17, 5, '2014-07-26');

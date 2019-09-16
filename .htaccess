@@ -1,0 +1,39 @@
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteCond %{SCRIPT_FILENAME} !-d
+
+RewriteRule ^Agenda/del.php(.)?$ Controller/conexao.php
+RewriteRule ^Agenda/detalhes.php(.)?$ Controller/conexao.php
+
+RewriteRule ^Cliente/del.php(.)?$ Controller/conexao.php
+RewriteRule ^Cliente/detalhes.php(.)?$ Controller/conexao.php
+
+RewriteRule ^Parceiro/del.php(.)?$ Controller/conexao.php
+RewriteRule ^Parceiro/detalhes.php(.)?$ Controller/conexao.php
+
+RewriteRule ^Fornecedor/del.php(.)?$ Controller/conexao.php
+RewriteRule ^Fornecedor/detalhes.php(.)?$ Controller/conexao.php
+
+RewriteRule ^Corporativo/lista.php(.)?$ Home/pagina-modelo.php
+
+
+RewriteRule ^OrcamentoCompra/del.php(.)?$ Controller/conexao.php
+RewriteRule ^OrcamentoCompra/detalhes.php(.)?$ Controller/conexao.php
+
+RewriteRule ^Aquisicao/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Relatorio/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Laudo/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Contrato/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^OrcamentoCompra/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Cotacao/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^ContaPagar/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^ContaReceber/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^ProgramacaoFaturamento/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^EmissaoNotaFiscal/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Cadastro/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Recibo/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Comprovante/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Juridico/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Licitacao/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Consulta/lista.php(.)?$ Home/pagina-modelo.php
+RewriteRule ^Estoque/lista.php(.)?$ Home/pagina-modelo.php
